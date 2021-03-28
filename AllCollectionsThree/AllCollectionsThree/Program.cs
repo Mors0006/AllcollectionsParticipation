@@ -9,48 +9,40 @@ namespace AllCollectionsThree
         {
             Dictionary<string, List<double>> coursegrades = new Dictionary<string, List<double>>();
             coursegrades.Add("MIS3013", new List<double>());
-            coursegrades["MIS3013"].Add(.95);
-            coursegrades["MIS3013"].Add(.70);
-            coursegrades["MIS3013"].Add(.85);
+            coursegrades["MIS3013"].Add(95);
+            coursegrades["MIS3013"].Add(70);
+            coursegrades["MIS3013"].Add(85);
             coursegrades.Add("MIS3023", new List<double>());
-            coursegrades["MIS3023"].Add(.80);
-            coursegrades["MIS3023"].Add(.75);
-            coursegrades["MIS3023"].Add(.60);
+            coursegrades["MIS3023"].Add(80);
+            coursegrades["MIS3023"].Add(75);
+            coursegrades["MIS3023"].Add(60);
             coursegrades.Add("MIS3033", new List<double>());
-            coursegrades["MIS3033"].Add(.90);
-            coursegrades["MIS3033"].Add(.77);
-            coursegrades["MIS3033"].Add(.69);
-            double grade = 0;
-            Console.WriteLine("Which class do you want to see the average grade for? MIS3013, MIS3023 or MIS3033?");
-            string courseid = Console.ReadLine();
-            Random rand = new Random();
+            coursegrades["MIS3033"].Add(90);
+            coursegrades["MIS3033"].Add(77);
+            coursegrades["MIS3033"].Add(69);
+            
+            
+            
             foreach (string coursename in coursegrades.Keys)
             {
-                if (coursegrades.ContainsKey(courseid))
-                {
-                    List<double> grades = coursegrades[courseid];
-
-
-                }
-                else
-                {
-                    Console.WriteLine($"{courseid} is not a valid course id. Be more careful next time!");
-                    Environment.Exit(-1);
-                }
-                for (int i = 0; i < coursename.Length; i++)
-                {
-                    if (coursegrades.ContainsKey(courseid) != false)
+                    double sum = 0;
+                    List<double> grades = coursegrades[coursename];
+                    foreach (double score in grades)
                     {
-                        grade = coursegrades[courseid];
+                        sum = sum + score;
                     }
+                    double average = sum / grades.Count;
+                    double percent = average / 100;
+                    Console.WriteLine($"For {coursename}, your average grade is" +
+                        $" {percent.ToString("P2")}");
 
-                }
+               
 
 
             }
             
 
-            // I am totally lost and gave up
+            
 
         }
     }
